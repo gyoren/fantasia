@@ -52,27 +52,31 @@ def main(): # this is the other code below but without the temp blacklist for ob
     clear()
     pygame.mixer.music.stop()
 
-main()
+try:
+    main()
 
-tempblacklist = []
-tempblacklist.append(randomfile)
-
-while True: # see main() for comments
-    randomfile = random.choice(allOGG)
-    while randomfile in tempblacklist[-10:]:
-        randomfile = random.choice(allOGG)
-    durationraw = tinytag.TinyTag.get(randomfile).duration
-    duration = divmod(round(durationraw), 60)
-    pygame.mixer.music.load(randomfile)
-    pygame.mixer.music.set_volume(volume)
-    pygame.mixer.music.play()
-    songLocationSplit = randomfile.replace("\\", "/").split("/")
-    pytimedinput.timedInput(songLocationSplit[-1][4:-4]
-    .replace("`", "'").replace("_", "!").replace(",,,", "...")
-    .replace("^e", "é").replace("-", "?").replace("^s", "/")
-    .replace("^c", ":").replace(";", "-").replace("^q", '"')
-    + f', length: {duration[0]}:{duration[1]:02}\nTrack from {songLocationSplit[-2]}',
-    durationraw, True, 1)
-    clear()
-    pygame.mixer.music.stop()
+    tempblacklist = []
     tempblacklist.append(randomfile)
+
+    while True: # see main() for comments
+        randomfile = random.choice(allOGG)
+        while randomfile in tempblacklist[-10:]:
+            randomfile = random.choice(allOGG)
+        durationraw = tinytag.TinyTag.get(randomfile).duration
+        duration = divmod(round(durationraw), 60)
+        pygame.mixer.music.load(randomfile)
+        pygame.mixer.music.set_volume(volume)
+        pygame.mixer.music.play()
+        songLocationSplit = randomfile.replace("\\", "/").split("/")
+        pytimedinput.timedInput(songLocationSplit[-1][4:-4]
+        .replace("`", "'").replace("_", "!").replace(",,,", "...")
+        .replace("^e", "é").replace("-", "?").replace("^s", "/")
+        .replace("^c", ":").replace(";", "-").replace("^q", '"')
+        + f', length: {duration[0]}:{duration[1]:02}\nTrack from {songLocationSplit[-2]}',
+        durationraw, True, 1)
+        clear()
+        pygame.mixer.music.stop()
+        tempblacklist.append(randomfile)
+except KeyboardInterrupt:
+    clear()
+    sys.exit("0")
