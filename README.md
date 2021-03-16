@@ -1,6 +1,6 @@
 # fantasia - a player that picks songs randomly from a specialized collection of Pokemon game OST
 First up - you'll need a collection of Pokemon game OST, which I have conveniently made and uploaded to Google Drive.
-Download it using this link: https://drive.google.com/file/d/1QSzHSIAOR9RfbN-mzYwPT5KvJTYJt5Yj/view?usp=sharing
+Download it using this link: https://drive.google.com/file/d/1QSzHSIAOR9RfbN-mzYwPT5KvJTYJt5Yj/view?usp=sharing (DOESN'T WORK FOR NOW)
 
 and extract 'audio' (and 'sfx', if you want to) into the same folder where the script and/or the built program resides.
 Now you can run the script or the built program, input the volume (e.g. 1/4 = 25% volume) and enjoy!
